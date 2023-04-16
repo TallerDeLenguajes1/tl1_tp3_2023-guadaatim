@@ -1,45 +1,69 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#define FILAS 5
+#define COLUMNAS 12
 
-int promedio(int matriz[][]);
+//int promedio(int matriz[][]);
 
 int main(){
 
-    int produccion[5][12];
+    int produccion[FILAS][COLUMNAS];
+    int suma = 0, promedio, x = 0;
+    int maximo, minimo;
+    int anio1, anio2, mes1, mes2;
 
     srand(time(NULL));
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < FILAS; i++)
     {
-        for (int j = 0; j < 12; j++)
+        for (int j = 0; j < COLUMNAS; j++)
         {
             produccion[i][j] = 10000 + rand() % 40000;
+            suma += produccion[i][j];
             printf("\nproduccion[%d][%d] = %d", i, j, produccion[i][j]);    
-        printf("\n");
+            printf("\n");
         }
        
     }
-    
-    printf("\nel promedio de ganancias es: %d", promedio(produccion));
 
-    return 0;
-}
+    promedio = suma / (5 * 12);
 
-int promedio(int matriz[][])
-{
-    int suma = 0, promedio;
-
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < FILAS; i++)
     {
-        for (int j = 0; j < 12; j++)
+        for (int j = 0; j < COLUMNAS; j++)
         {
-            suma += matriz[i][j];
+            if (x == 0)
+            {
+                maximo = produccion[i][j];
+                minimo = produccion[i][j];
+                anio1 = j;
+                mes1 = i;
+                anio2 = j;
+                mes2 = i;
+                x++;
+            } else
+            {
+                if (produccion[i][j] > maximo)
+                {
+                    maximo = produccion[i][j];
+                    anio1 = j;
+                    mes1 = i;
+                }
+                if (produccion[i][j] < minimo )
+                {
+                    minimo = produccion[i][j];
+                    anio2 = j;
+                    mes2 = i;
+                }
+                
+            }
         }
-        
     }
 
-    promedio = suma / (5*12);
-    return promedio;
+    printf("\nel promedio de ganancias es: %d", promedio);
+    printf("\nel valor maximo es: %d, del mes %d del anio %d", maximo, mes1, anio1);
+    printf("\nel valor minimo es: %d, del mes %d del anio %d", minimo, mes2, anio2);
     
+    return 0;
 }
