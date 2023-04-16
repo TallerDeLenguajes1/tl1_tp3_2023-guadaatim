@@ -19,13 +19,13 @@ int main(){
         {
             produccion[i][j] = 10000 + rand() % 40000;
             suma += produccion[i][j];
-            printf("\nproduccion[%d][%d] = %d", i, j, produccion[i][j]);    
-            printf("\n");
+            printf("produccion[%d][%d] = %d \n", i, j, produccion[i][j]);    
         }
-       
+        
+        promedio = suma / 12;
+        printf("el promedio de ganancias es: %d\n", promedio);
+        printf("\n");
     }
-
-    promedio = suma / (5 * 12);
 
     for (int i = 0; i < FILAS; i++)
     {
@@ -59,7 +59,6 @@ int main(){
         }
     }
 
-    printf("\nel promedio de ganancias es: %d", promedio);
     printf("\nel valor maximo es: %d, del mes %d del anio %d", maximo, mes1, anio1);
     printf("\nel valor minimo es: %d, del mes %d del anio %d", minimo, mes2, anio2);
     
