@@ -4,8 +4,6 @@
 #define FILAS 5
 #define COLUMNAS 12
 
-//int promedio(int matriz[][]);
-
 int main(){
 
     int produccion[FILAS][COLUMNAS];
