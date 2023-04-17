@@ -38,7 +38,7 @@ int main(){
 
     for (int i = 0; i < cantidadc; i++)
     {
-        //srand(time(NULL));
+        
         clientes[i].clienteID = i;
         fflush(stdin);
         char buff[20];
@@ -49,11 +49,11 @@ int main(){
         clientes[i].cantidadProductosAPedir = 2; //1 + rand() % 4;
         clientes[i].productos = (struct Producto *) malloc(sizeof(producto) * clientes[i].cantidadProductosAPedir);
         
+        //srand(time(NULL));
         for (int j = 0; j < clientes[i].cantidadProductosAPedir; j++)
         {
             clientes[i].productos->productoID = j;
             clientes[i].productos->cantidad = 1 + rand() % 10;
-            //fflush(stdin);
             clientes[i].productos->tipoProducto = &tiposProductos[rand() % 3][0];
             clientes[i].productos->precioUnitario = 10 + rand() % 101;
         }
