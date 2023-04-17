@@ -24,6 +24,5 @@ int main(){
         free(nombre);
     }
 
-
     return 0;
 }
