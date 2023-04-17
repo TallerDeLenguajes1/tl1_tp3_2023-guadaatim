@@ -44,32 +44,24 @@ int main(){
         char buff[20];
         printf("\ningrese el nombre del cliente: ");
         gets(buff);
-        clientes[i].nombreCliente = malloc(sizeof(char) * (strlen(buff) + 1));
-        fflush(stdin);
-        clientes[i].cantidadProductosAPedir = 2; //1 + rand() % 4;
+        clientes[i].nombreCliente = (char *) malloc(sizeof(char) * (strlen(buff) + 1));
+        strcpy(clientes[i].nombreCliente, buff);
+        clientes[i].cantidadProductosAPedir = 1 + rand() % 4;
         clientes[i].productos = (struct Producto *) malloc(sizeof(producto) * clientes[i].cantidadProductosAPedir);
         
+        printf("\n-------CLIENTE-------");
+        printf("\nNombre del cliente: %s", clientes[i].nombreCliente);
+        printf("\nID: %d", clientes[i].clienteID);
+        printf("\nCantidad de productos a pedir: %d", clientes[i].cantidadProductosAPedir);
+
         //srand(time(NULL));
         for (int j = 0; j < clientes[i].cantidadProductosAPedir; j++)
         {
             clientes[i].productos->productoID = j;
             clientes[i].productos->cantidad = 1 + rand() % 10;
-            clientes[i].productos->tipoProducto = &tiposProductos[rand() % 3][0];
+            clientes[i].productos->tipoProducto = &tiposProductos[rand() % 5][0];
             clientes[i].productos->precioUnitario = 10 + rand() % 101;
-        }
 
-    }
-
-    for (int i = 0; i < cantidadc; i++)
-    {
-        printf("\n-------CLIENTE-------");
-        printf("\nNombre del cliente: ");
-        puts(clientes[i].nombreCliente);
-        printf("\nID: %d", clientes[i].clienteID);
-        printf("\nCantidad de productos a pedir: %d", clientes[i].cantidadProductosAPedir);
-        
-        for (int j = 0; j < clientes[i].cantidadProductosAPedir; j++)
-        {
             printf("\n-------PRODUCTOS-------");
             printf("\nID: %d", clientes[i].productos->productoID);
             printf("\nTipo de producto: %s", clientes[i].productos->tipoProducto);
@@ -78,10 +70,11 @@ int main(){
             costototalproducto = costoTotal(clientes[i].productos);
             printf("\nCosto Total: %.2f", costototalproducto);
             sumatodoslosproductos += costototalproducto;
+
         }
 
         printf("\nsuma de todos los productos: %.2f", sumatodoslosproductos);
-        
+
     }
     
     return 0;
