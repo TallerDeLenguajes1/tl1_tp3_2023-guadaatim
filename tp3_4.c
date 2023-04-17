@@ -44,10 +44,10 @@ int main(){
         char buff[20];
         printf("\ningrese el nombre del cliente: ");
         gets(buff);
-        clientes[i].nombreCliente = (char *) malloc(sizeof(char) * (strlen(buff) + 1));
+        clientes[i].nombreCliente = (char *)malloc(sizeof(char) * (strlen(buff) + 1));
         strcpy(clientes[i].nombreCliente, buff);
         clientes[i].cantidadProductosAPedir = 1 + rand() % 4;
-        clientes[i].productos = (struct Producto *) malloc(sizeof(producto) * clientes[i].cantidadProductosAPedir);
+        clientes[i].productos = (struct Producto *)malloc(sizeof(producto) * clientes[i].cantidadProductosAPedir);
         
         printf("\n-------CLIENTE-------");
         printf("\nNombre del cliente: %s", clientes[i].nombreCliente);
