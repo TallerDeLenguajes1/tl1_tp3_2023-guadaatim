@@ -1,14 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define CANTIDAD 5
 
 int main(){
 
     char *nombre;
     char *buff;
+    int cantidad;
 
-    for (int i = 0; i < CANTIDAD; i++)
+    printf("\ningrese la cantidad de nombres que desea ingresar: ");
+    scanf("%d",&cantidad);
+
+    for (int i = 0; i < cantidad; i++)
     {
         buff = malloc(sizeof(char));
         printf("\ningrese su nombre: ");
