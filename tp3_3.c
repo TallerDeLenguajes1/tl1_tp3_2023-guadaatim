@@ -3,8 +3,6 @@
 #include <stdlib.h>
 #define CANTIDAD 5
 
-void mostrar(char *aux, char *nombres);
-
 int main(){
 
     char *nombre;
@@ -18,20 +16,14 @@ int main(){
 
         nombre = malloc((strlen(buff) + 1) * sizeof(char));
         strcpy(nombre, buff);
+
+        puts(nombre);
+        puts(buff);
+
+        free(buff);
+        free(nombre);
     }
 
-    mostrar(buff, nombre);
-    
 
     return 0;
-}
-
-void mostrar(char *aux, char *nombres)
-{
-    for (int i = 0; i < CANTIDAD; i++)
-    {
-        printf("\nbuff: %s", *aux);
-        printf("\nnombre: %s", *nombres);
-    }
-    
 }
