@@ -54,7 +54,6 @@ int main(){
         printf("\nID: %d", clientes[i].clienteID);
         printf("\nCantidad de productos a pedir: %d", clientes[i].cantidadProductosAPedir);
 
-        //srand(time(NULL));
         for (int j = 0; j < clientes[i].cantidadProductosAPedir; j++)
         {
             clientes[i].productos->productoID = j;
